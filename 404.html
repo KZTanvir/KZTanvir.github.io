@@ -1,17 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>404 Not Found</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-    h1 { font-size: 48px; }
-    p { font-size: 18px; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 - Page Not Found</title>
+<style>
+  /* Material Design inspired dark green theme */
+
+  :root {
+    --primary-green: #2e7d32;
+    --primary-green-light: #60ad5e;
+    --primary-green-dark: #005005;
+    --bg-dark: #121917;
+    --text-primary: #e0f2f1;
+    --text-secondary: #a5d6a7;
+    --button-bg: #388e3c;
+    --button-bg-hover: #2e7d32;
+    --shadow-color: rgba(46, 125, 50, 0.4);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body, html {
+    margin: 0;
+    height: 100%;
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    user-select: none;
+  }
+
+  .container {
+    background-color: #1b2a1f;
+    padding: 40px 50px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    text-align: center;
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h1 {
+    font-size: 8rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--primary-green-light);
+    letter-spacing: 8px;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin: 8px 0 4px;
+    color: var(--text-secondary);
+  }
+
+  .redirect {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: var(--text-primary);
+  }
+
+  a.home-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 28px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: var(--button-bg);
+    color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 6px 10px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: text;
+  }
+
+  a.home-link:hover,
+  a.home-link:focus {
+    background-color: var(--button-bg-hover);
+    box-shadow: 0 8px 18px var(--shadow-color);
+    outline: none;
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 5rem;
+      letter-spacing: 5px;
+    }
+
+    .container {
+      padding: 30px 20px;
+      max-width: 90vw;
+    }
+  }
+</style>
 </head>
 <body>
-  <h1>404</h1>
-  <p>Sorry, the page you are looking for does not exist.</p>
-  <a href="/">Go to Homepage</a>
+
+<div class="container" role="main" aria-labelledby="pageTitle" aria-describedby="pageDesc">
+  <h1 id="pageTitle">404</h1>
+  <p id="pageDesc">Sorry, the page you requested was not found.</p>
+  <p class="redirect">Redirecting to home in <span id="countdown">4</span> seconds...</p>
+  <a href="/" class="home-link" tabindex="0">Go to Home Now</a>
+</div>
+
+<script>
+  let seconds = 2;
+  const countdownEl = document.getElementById('countdown');
+
+  const timer = setInterval(() => {
+    seconds--;
+    countdownEl.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(timer);
+      window.location.href = '/';
+    }
+  }, 1000);
+</script>
+
 </body>
 </html>
