@@ -1,0 +1,53 @@
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+
+# VSCode
+.vscode/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+
+# OS-generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Backup files
+*.bak
+*.tmp
+
+# Coverage reports
+htmlcov/
+coverage.xml
+*.cover
+.cache
+.tox/
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+
+# Database
+*.sqlite3
+*.db
+
+# Secrets
+.env
+.env.*
+
+# Test output
+.junit/
+
+# Ignore compiled JS (if using TS)
+*.tsbuildinfo
