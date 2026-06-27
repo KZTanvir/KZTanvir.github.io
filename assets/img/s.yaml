@@ -1,0 +1,280 @@
+port: 4540
+allow-lan: false
+mode: rule
+log-level: silent
+ipv6: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  default-nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+  nameserver:
+    - 94.140.14.14
+    - 94.140.15.15
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+
+# ==========================================
+# Local Proxy Definitions
+# ==========================================
+proxies:
+  - name: "🇧🇩 Proxy - Agnisrote [CIRCLE] [SAM] [ICC]"
+    type: socks5
+    server: 103.108.60.89
+    port: 9168
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - Limit Break"
+    type: socks5
+    server: 103.120.223.169
+    port: 9168
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - S2 [FTP] [SAM]"
+    type: socks5
+    server: 103.245.206.89
+    port: 65464
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - Elite [FTP] [CIRCLE]"
+    type: socks5
+    server: 103.148.210.42
+    port: 9169
+    username: "test_xxvjtezm"
+    password: "dFmv79T92i5u"
+
+  - name: "🇧🇩 Proxy - SlowPoke"
+    type: socks5
+    server: 103.112.54.254
+    port: 1932
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - S7 [FTP] [CIRCLE] [SAM]"
+    type: socks5
+    server: 103.153.110.186
+    port: 1080
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - ShakaLaka"
+    type: socks5
+    server: 103.186.238.117
+    port: 1932
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - Hernoly"
+    type: socks5
+    server: 103.151.31.25
+    port: 9198
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - BLC-SRV-07"
+    type: socks5
+    server: 103.186.238.116
+    port: 1932
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - BLC-SRV-08"
+    type: socks5
+    server: 27.123.254.160
+    port: 9168
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 VIP - Ghurnichokro"
+    type: socks5
+    server: 203.96.225.49
+    port: 9168
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - FlashConnect-2"
+    type: socks5
+    server: 103.120.221.37
+    port: 9168
+    username: "test_22_"
+    password: "test222__2s"
+
+  - name: "🇧🇩 Proxy - Exrex"
+    type: socks5
+    server: 203.76.220.168
+    port: 1052
+    username: "exrex"
+    password: "exrex"
+
+  - name: "🇧🇩 Proxy - Test 231"
+    type: socks5
+    server: 103.91.231.244
+    port: 1088
+    username: "test"
+    password: "test"
+
+  - name: "🇧🇩 Proxy - Test 253"
+    type: socks5
+    server: 103.166.253.92
+    port: 1088
+    username: "test"
+    password: "test"
+
+  - name: "🇧🇩 Proxy - BypassX"
+    type: socks5
+    server: 103.85.241.148
+    port: 6969
+    username: "@BDiX_BypassX"
+    password: "@BDiX_BypassX"
+
+  - name: "🇧🇩 Proxy - HTTP Node"
+    type: http
+    server: 202.40.178.218
+    port: 17209
+    username: "2024-12-16z4lzhfB4"
+    password: "bccbbbda"
+
+# ==========================================
+# Proxy Groups
+# ==========================================
+proxy-groups:
+  - name: "KZT BDIX BYPASS"
+    type: select
+    proxies:
+      - DIRECT
+      - REJECT
+      - "🇧🇩 BDIX SERVER"
+      - "🇧🇩 BDIX AUTO (Best Ping)"
+      - "🇧🇩 BDIX LOAD BALANCE"
+
+  - name: "🇧🇩 BDIX SERVER"
+    type: select
+    url: 'http://cp.cloudflare.com/'
+    interval: 200
+    tolerance: 50
+    proxies:
+      - "🇧🇩 Proxy - Agnisrote [CIRCLE] [SAM] [ICC]"
+      - "🇧🇩 Proxy - Limit Break"
+      - "🇧🇩 Proxy - SlowPoke"
+      - "🇧🇩 Proxy - ShakaLaka"
+      - "🇧🇩 Proxy - Hernoly"
+      - "🇧🇩 Proxy - BLC-SRV-07"
+      - "🇧🇩 Proxy - BLC-SRV-08"
+      - "🇧🇩 VIP - Ghurnichokro"
+      - "🇧🇩 Proxy - FlashConnect-2"
+      - "🇧🇩 Proxy - Exrex"
+      - "🇧🇩 Proxy - Test 231"
+      - "🇧🇩 Proxy - Test 253"
+      - "🇧🇩 Proxy - BypassX"
+      - "🇧🇩 Proxy - HTTP Node"
+
+  - name: "🇧🇩 BDIX LOAD BALANCE"
+    type: load-balance
+    url: 'http://cp.cloudflare.com/'
+    interval: 200
+    tolerance: 50
+    proxies:
+      - "🇧🇩 Proxy - Agnisrote [CIRCLE] [SAM] [ICC]"
+      - "🇧🇩 Proxy - Limit Break"
+      - "🇧🇩 Proxy - S2 [FTP] [SAM]"
+      - "🇧🇩 Proxy - Elite [FTP] [CIRCLE]"
+      - "🇧🇩 Proxy - SlowPoke"
+      - "🇧🇩 Proxy - S7 [FTP] [CIRCLE] [SAM]"
+      - "🇧🇩 Proxy - ShakaLaka"
+      - "🇧🇩 Proxy - Hernoly"
+      - "🇧🇩 Proxy - BLC-SRV-07"
+      - "🇧🇩 Proxy - BLC-SRV-08"
+      - "🇧🇩 VIP - Ghurnichokro"
+      - "🇧🇩 Proxy - FlashConnect-2"
+      - "🇧🇩 Proxy - Exrex"
+      - "🇧🇩 Proxy - Test 231"
+      - "🇧🇩 Proxy - Test 253"
+      - "🇧🇩 Proxy - BypassX"
+      - "🇧🇩 Proxy - HTTP Node"
+    strategy: round-robin
+    lazy: true
+
+  - name: "🇧🇩 BDIX AUTO (Best Ping)"
+    type: url-test
+    url: http://cp.cloudflare.com/
+    interval: 300
+    tolerance: 50
+    proxies:
+      - "🇧🇩 Proxy - Agnisrote [CIRCLE] [SAM] [ICC]"
+      - "🇧🇩 Proxy - Limit Break"
+      - "🇧🇩 Proxy - S2 [FTP] [SAM]"
+      - "🇧🇩 Proxy - Elite [FTP] [CIRCLE]"
+      - "🇧🇩 Proxy - SlowPoke"
+      - "🇧🇩 Proxy - S7 [FTP] [CIRCLE] [SAM]"
+      - "🇧🇩 Proxy - ShakaLaka"
+      - "🇧🇩 Proxy - Hernoly"
+      - "🇧🇩 Proxy - BLC-SRV-07"
+      - "🇧🇩 Proxy - BLC-SRV-08"
+      - "🇧🇩 VIP - Ghurnichokro"
+      - "🇧🇩 Proxy - FlashConnect-2"
+      - "🇧🇩 Proxy - Exrex"
+      - "🇧🇩 Proxy - Test 231"
+      - "🇧🇩 Proxy - Test 253"
+      - "🇧🇩 Proxy - BypassX"
+      - "🇧🇩 Proxy - HTTP Node"
+
+# ==========================================
+# Routing Engine Rules
+# ==========================================
+rules:
+  - IP-CIDR,0.0.0.0/32,REJECT
+  - DOMAIN-SUFFIX,10.0.0.0/8,KZT BDIX BYPASS
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR6,::1/128,DIRECT,no-resolve
+  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
+  - IP-CIDR6,fe80::/10,DIRECT,no-resolve
+  - IP-CIDR6,fd00::/8,DIRECT,no-resolve
+
+  # Ad and tracking domain blocks
+  - DOMAIN-SUFFIX,ad.com,REJECT
+  - DOMAIN,analytics.google.com,REJECT
+  - DOMAIN,analyticsinsights-pa.googleapis.com,REJECT
+  - DOMAIN,analyticsreporting.googleapis.com,REJECT
+  - DOMAIN-SUFFIX,doubleclick.net,REJECT
+  - DOMAIN-SUFFIX,googleadservices.com,REJECT
+  - DOMAIN-SUFFIX,googleadsserving.cn,REJECT
+  - DOMAIN-SUFFIX,googlesyndication.com,REJECT
+  - DOMAIN-SUFFIX,googletagmanager.com,REJECT
+  - DOMAIN-SUFFIX,googletagservices.com,REJECT
+  - DOMAIN-SUFFIX,google-analytics.com,REJECT
+
+  # Direct rules for specific trackers and media
+  - DOMAIN,tracker.torrent.eu.org,DIRECT
+  - DOMAIN,tracker.opentrackr.org,DIRECT
+  - DOMAIN,open.stealth.si,DIRECT
+  - DOMAIN,exodus.desync.com,DIRECT
+  - DOMAIN-SUFFIX,ggpht.com,DIRECT
+  - DOMAIN,nyaa.tracker.wf,DIRECT
+  - DOMAIN,monkeytype.com,DIRECT
+
+  # Keyword-based rules
+  - DOMAIN-KEYWORD,adservice,REJECT
+  - DOMAIN-KEYWORD,analytics,REJECT
+  - DOMAIN-KEYWORD,analysis,REJECT
+  - DOMAIN-KEYWORD,googleads,REJECT
+  - DOMAIN-KEYWORD,facebook,DIRECT
+  - DOMAIN-KEYWORD,fbcdn,DIRECT
+  - DOMAIN-KEYWORD,messenger,DIRECT
+  - DOMAIN-KEYWORD,torrentbd,DIRECT
+  - DOMAIN-KEYWORD,youtube,DIRECT
+  - DOMAIN-KEYWORD,discoveryftp,DIRECT
+  - DOMAIN-KEYWORD,whatsapp,DIRECT
+
+  # Specific IP and CIDR rules
+  - IP-CIDR,192.0.2.50/32,DIRECT
+  - SRC-IP-CIDR,192.168.1.201/32,DIRECT
+  - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+
+  # Fallback rule
+  - MATCH,KZT BDIX BYPASS
